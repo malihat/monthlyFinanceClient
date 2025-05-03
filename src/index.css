@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,42 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field {
+  color: rgb(198, 198, 198);
+  /* Change placeholder color */
+  /* Make it semi-transparent */
+}
+
+input[type="date"],
+input {
+  border: 0.7px solid rgb(206, 206, 206);
+}
+
+
+/* Optional: Custom scrollbar styles */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+  /* Scrollbar height */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #a0aec0;
+  /* Scrollbar thumb color */
+  border-radius: 4px;
+  /* Rounded corners for the scrollbar */
+}
+
+@media screen and (max-width: 523px) {
+  #monthly-total {
+    margin-top: 10px;
+  }
 }
