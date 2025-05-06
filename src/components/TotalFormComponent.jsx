@@ -14,7 +14,7 @@ export default function TotalFormComponent() {
     useEffect(() => {
         const fetchTotal = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/total`);
+                const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/total`);
 
                 if (response.data) {
                     addTotal(response.data[0].total); // Assuming `total` is part of the response
@@ -30,7 +30,7 @@ export default function TotalFormComponent() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:5000/api/total`, {
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/total`, {
                 total: totalMoney,
             });
             addTotal(response.data.total);                      
