@@ -105,11 +105,11 @@ const ListDisplayComponent = ({ record, onDelete }) => {
                   <td className="border border-gray-300 p-2">${item.amount}</td>
                   <td className="border border-gray-300 p-2">
                     <img
-                      src={`${process.env.REACT_APP_BASE_URL}/uploads/${item.image}`}
+                      src={item.image}
                       width={50}
                       height={50}
                       className="cursor-pointer"
-                      onClick={() => handleImageClick(`${process.env.REACT_APP_BASE_URL}/uploads/${item.image}`)}
+                      onClick={() => handleImageClick(item.image)}
                       alt="thumbnail"
                     />
                   </td>
