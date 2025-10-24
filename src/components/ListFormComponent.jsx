@@ -12,6 +12,7 @@ const ListFormComponent = () => {
     const fileInputRef = useRef();
     const notifyError = () => toast.error("Not enough balance");
     const notifyAdded = () => toast("New item has been added");
+    const tableRef = useRef(null);
 
     const [formData, setFormData] = useState({
       date: '',
@@ -116,6 +117,11 @@ const ListFormComponent = () => {
         } catch (error) {
             console.error('Error submitting form:', error);
         }
+
+        // Optional: Scroll smoothly to the table
+        setTimeout(() => {
+          tableRef.current?.scrollIntoView({ behavior: "smooth" });
+        }, 200);
     };
 
     const handleDelete = (id) => {
@@ -182,7 +188,7 @@ const ListFormComponent = () => {
         <div className="w-full md:w-[35%] flex justify-center md:justify-start mb-4 md:mb-0">
           <PieChart record={record} />
         </div>
-        <div className="w-full md:w-[75%] flex justify-center md:justify-end">
+        <div ref={tableRef} className="w-full md:w-[75%] flex justify-center md:justify-end">
           <div className="w-full">
             <ListDisplayComponent record={record} onDelete={handleDelete} />
           </div>
